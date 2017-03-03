@@ -1,5 +1,5 @@
 *.iml
-.idea/vcs.xml
+/.idea/vcs.xml
 .gradle
 /local.properties
 /.idea/workspace.xml

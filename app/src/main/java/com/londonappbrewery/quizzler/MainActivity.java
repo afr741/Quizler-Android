@@ -38,24 +38,40 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTrueButton = (Button) findViewById(R.id.true_button);
-        mFalseButton = (Button) findViewById(R.id.false_button);
+        mTrueButton = findViewById(R.id.true_button);
+        mFalseButton = findViewById(R.id.false_button);
 
-        View.OnClickListener myListener = new View.OnClickListener() {
+        // create onclick listener object
+        View.OnClickListener myListner = new View.OnClickListener() {
             @Override
-            public void OnClick(View v) {
-                Log.d("Quizzler","Button pressed!" );
-                Toast.makeText(getApplicationContext(), "True Pressed!", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+
+                Log.d("Quizzler", " True Button Clicked!!!");
+
+                //Show toast message without creating new object
+                Toast.makeText(getApplicationContext(),"True Button Clicked!",Toast.LENGTH_SHORT).show();
             }
         };
 
-        mTrueButton.setOnClickListener(myListener);
+        //set onclick listener to true button
+        mTrueButton.setOnClickListener(myListner);
+
+        //creating anonymous listener for false button
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast myToast = Toast.makeText(getApplicationContext(), "False pressed", Toast.LENGTH_SHORT);
-                myToast.show();
+
+                Log.d("Quizzler", " False Button Clicked!!!");
+
+                //create Toast message
+                Toast toastMessage  = Toast.makeText(getApplicationContext(),"False Button Clicked!",Toast.LENGTH_SHORT);
+                toastMessage.show();
             }
         });
+
+
+        //TrueFalse exampleQuestion = new TrueFalse(R.string.question_1,true);
+
+
     }
 }

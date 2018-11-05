@@ -1,4 +1,4 @@
-package com.londonappbrewery.quizzler_complete;
+package com.londonappbrewery.quizzler;
 
 // This is the model class that represents a single quiz question.
 public class TrueFalse {

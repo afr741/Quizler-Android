@@ -1,4 +1,4 @@
-package com.londonappbrewery.quizzler_complete;
+package com.londonappbrewery.quizzler;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.londonappbrewery.quizzler.R;
+import com.londonappbrewery.quizzler.TrueFalse;
 
 import static android.widget.Toast.makeText;
 
@@ -31,20 +32,20 @@ public class MainActivity extends Activity {
 
     // Create question bank using the TrueFalse class for each item in the array
     @NonNull
-    private com.londonappbrewery.quizzler_complete.TrueFalse[] mQuestionBank = new com.londonappbrewery.quizzler_complete.TrueFalse[] {
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_1, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_2, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_3, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_4, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_5, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_6, false),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_7, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_8, false),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_9, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_10, true),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_11, false),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_12, false),
-            new com.londonappbrewery.quizzler_complete.TrueFalse(R.string.question_13,true)
+    private TrueFalse[] mQuestionBank = new TrueFalse[] {
+            new TrueFalse(R.string.question_1, true),
+            new TrueFalse(R.string.question_2, true),
+            new TrueFalse(R.string.question_3, true),
+            new TrueFalse(R.string.question_4, true),
+            new TrueFalse(R.string.question_5, true),
+            new TrueFalse(R.string.question_6, false),
+            new TrueFalse(R.string.question_7, true),
+            new TrueFalse(R.string.question_8, false),
+            new TrueFalse(R.string.question_9, true),
+            new TrueFalse(R.string.question_10, true),
+            new TrueFalse(R.string.question_11, false),
+            new TrueFalse(R.string.question_12, false),
+            new TrueFalse(R.string.question_13,true)
     };
 
     // Declaring constants here. Rather than a fixed number, choosing to make it a function

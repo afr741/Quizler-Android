@@ -4,7 +4,7 @@
     <string name="true_button">True</string>
     <string name="false_button">False</string>
     <string name="initial_score">Score 0/13</string>
-
+    <string name = "timer">Time:0:00</string>
 
     <string name="incorrect_toast">Wrong!</string>
     <string name="correct_toast">You got it!</string>

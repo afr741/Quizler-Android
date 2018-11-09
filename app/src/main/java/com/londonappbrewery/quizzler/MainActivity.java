@@ -3,6 +3,7 @@ package com.londonappbrewery.quizzler;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -101,6 +102,7 @@ public void showNextQuiz() {
  answerButton2.setText(quiz.get(1));
  answerButton3.setText(quiz.get(2));
  answerButton4.setText(quiz.get(3));
+
  quizArray.remove(randomNum);
 }
 
@@ -117,6 +119,7 @@ public void checkAnswer(View view) {
 
   //correct!
   alertTitle = "Correct";
+ rightAnswerCount++;
  }
  else {
   //wrong
@@ -130,8 +133,10 @@ public void checkAnswer(View view) {
   @Override
   public void onClick(DialogInterface dialogInterface, int i) {
    if(quizCount == QUIZ_COUNT) {
-
     //show Result
+    Intent intent = new Intent(getApplicationContext(), resultActivity.class);
+    intent.putExtra("RIGHT_ANSWER_COUNT", rightAnswerCount);
+    startActivity(intent);
    }
    else {
       quizCount++;

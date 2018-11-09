@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -24,16 +25,22 @@ import static android.widget.Toast.makeText;
 
 public class MainActivity extends Activity {
 private TextView countLabel;
+ProgressBar mProgressBar;
 private TextView questionLabel;
+private TextView quizTimer;
 private Button answerButton1;
 private Button answerButton2;
 private Button answerButton3;
 private Button answerButton4;
-
+private CountDownTimer mCountDownTimer;
 private String rightAnswer;
 private int rightAnswerCount = 0;
 private int quizCount = 1;
+
 static final private int QUIZ_COUNT = 5;
+static final long START_TIME_IN_MILIS = 60000;
+private long mTimeLeftinMillis = START_TIME_IN_MILIS;
+int PROGRESS_BAR_INCREMENT = 100/QUIZ_COUNT;
 ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
 String quizData[][] = {
 
@@ -45,17 +52,47 @@ String quizData[][] = {
         {"Assignment number", "assign3", "assign2", "assign69", "assign5"}
 };
 
+private void startTimer()
+{
+ mCountDownTimer = new CountDownTimer(mTimeLeftinMillis, 1000) {
+  @Override
+  public void onTick(long millisUntilFinished) {
+   mTimeLeftinMillis = millisUntilFinished;
+   quizTimer.setText("Time: " + millisUntilFinished / 1000);
+  }
+
+  @Override
+  public void onFinish() {
+  quizTimer.setText("DONE!");
+  }
+ }.start();
+
+}
+/** SAMPLE TIMER
+new CountDownTimer(30000, 1000) {
+
+  public void onTick(long millisUntilFinished) {
+   mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+  }
+
+  public void onFinish() {
+   mTextField.setText("done!");
+  }
+ }.start();
+**/
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 countLabel = (TextView)findViewById(R.id.countLabel);
 questionLabel = (TextView)findViewById(R.id.question_text_view);
+quizTimer = (TextView)findViewById(R.id.timer);
+mProgressBar = (ProgressBar)findViewById(R.id.progress_bar);
 answerButton1 = (Button)findViewById(R.id.answer1);
 answerButton2 = (Button)findViewById(R.id.answer2);
 answerButton3 = (Button)findViewById(R.id.answer3);
 answerButton4 = (Button)findViewById(R.id.answer4);
-
+startTimer();
 //create quizArray from quizData
 
         for (int i = 0; i< quizData.length; i++)
@@ -80,7 +117,6 @@ public void showNextQuiz() {
 
         //Update quizCountLabel
     countLabel.setText("Q" + quizCount);
-
     //Generate random number between 0 and 14(quizArray's size -1).
     Random random = new Random();
     int randomNum = random.nextInt(quizArray.size());
@@ -128,18 +164,21 @@ public void checkAnswer(View view) {
 
  AlertDialog.Builder builder = new AlertDialog.Builder(this);
  builder.setTitle(alertTitle);
- builder.setMessage("Answer: " + rightAnswer);
+ builder.setMessage("");
+
  builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
   @Override
   public void onClick(DialogInterface dialogInterface, int i) {
    if(quizCount == QUIZ_COUNT) {
     //show Result
     Intent intent = new Intent(getApplicationContext(), resultActivity.class);
+       mProgressBar.setProgress(0);
     intent.putExtra("RIGHT_ANSWER_COUNT", rightAnswerCount);
     startActivity(intent);
    }
    else {
       quizCount++;
+    mProgressBar.incrementProgressBy(PROGRESS_BAR_INCREMENT);
       showNextQuiz();
 
    }

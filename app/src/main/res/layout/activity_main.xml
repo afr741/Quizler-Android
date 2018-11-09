@@ -32,13 +32,13 @@
 
     <TextView
         android:id="@+id/timer"
-        android:layout_width="wrap_content"
+        android:layout_width="158dp"
         android:layout_height="wrap_content"
         android:layout_above="@id/progress_bar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="245dp"
-        android:layout_marginRight="245dp"
+        android:layout_marginEnd="222dp"
+        android:layout_marginRight="222dp"
         android:layout_marginBottom="0dp"
         android:padding="10dp"
         android:text="@string/timer"

@@ -45,11 +45,16 @@ ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
 String quizData[][] = {
 
         //{"Question", "right answer", "choicea", "choiceb", "choicec", "choiced"}
-        {"Snow", "White", "Green", "Blue", "yellow"},
-        {"Coal", "Black", "White", "Blue", "Orange"},
-        {"Donald Trump", "Orange", "Black", "Green", "Blue"},
-        {"Course", "cs3300", "cs4300", "cs1400", "cs4770"},
-        {"Assignment number", "assign3", "assign2", "assign69", "assign5"}
+        {"Snow color?", "White", "Green", "Blue", "yellow"},
+        {"Coal color?", "Black", "White", "Blue", "Orange"},
+        {"Donald Trump's color?", "Orange", "Black", "Green", "Blue"},
+        {"Course number?", "cs3300", "cs4300", "cs1400", "cs4770"},
+        {"Assignment number?", "assign3", "assign2", "assign69", "assign5"},
+        {"Canada's capital city?", "Ottawa", "Toronto", "St.Johns", "Montreal"},
+        {"The sound dog makes?", "woof?", "meow", "be be", "moo"},
+        {"Number of planets in solar system?", "9", "8", "7", "11"},
+        {"Biggest planet in solar system?", "Jupiter", "Neptune", "Saturn", "Uranus"},
+        {"Find the odd one?", "hyena", "dog", "lion", "wolf"}
 };
 
 private void startTimer()

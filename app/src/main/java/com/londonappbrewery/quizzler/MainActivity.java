@@ -148,17 +148,6 @@ public void checkAnswer(View view) {
 
 
 /**
- // Member variables accessible in all the methods of the MainActivity:
- Button mTrueButton;
- Button mFalseButton;
- Button mFalseButton2;
- Button mFalseButton3;
- TextView mScoreTextView;
- TextView mQuestionTextView;
- ProgressBar mProgressBar;
- int mIndex;
- int mScore;
- int mQuestion;
 
  Toast mToastMessage; // For keeping track if a Toast message is being shown.
 
